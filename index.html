@@ -1,0 +1,103 @@
+html
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pravesh Free Conference</title>
+<style>
+*{box-sizing:border-box}
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:linear-gradient(140deg,#10152f,#075b83);
+color:white;
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:20px;
+}
+.app{
+width:100%;
+max-width:420px;
+background:#ffffff15;
+border:1px solid #ffffff30;
+border-radius:25px;
+padding:28px 22px;
+text-align:center;
+box-shadow:0 15px 40px #0005;
+}
+h1{color:#4cecff}
+input{
+width:100%;
+padding:15px;
+margin:10px 0;
+border:0;
+border-radius:12px;
+font-size:16px;
+}
+button{
+width:100%;
+padding:15px;
+margin-top:12px;
+border:0;
+border-radius:12px;
+background:#00e0a0;
+font-size:17px;
+font-weight:bold;
+cursor:pointer;
+}
+.leave{background:#ff6565;color:white}
+#status{
+margin-top:20px;
+padding:12px;
+background:#0003;
+border-radius:10px;
+}
+</style>
+</head>
+<body>
+<div class="app">
+<h1>📞 Pravesh</h1>
+<h2>Free Conference</h2>
+<p>Connect with friends and family</p>
+
+<input id="username" placeholder="Apna naam likho">
+<input id="room" placeholder="Room ID likho">
+
+<button onclick="createRoom()">Create Room</button>
+<button onclick="joinRoom()">Join Room</button>
+<button class="leave" onclick="leaveRoom()">Leave Room</button>
+
+<div id="status">Welcome! ❤️</div>
+</div>
+
+<script>
+function createRoom(){
+let name=document.getElementById("username").value.trim();
+let room=document.getElementById("room").value.trim();
+if(!name || !room){
+status("Naam aur Room ID bhariye!");
+return;
+}
+status("Room "+room+" create karne ke liye ready hai, "+name+"!");
+}
+function joinRoom(){
+let name=document.getElementById("username").value.trim();
+let room=document.getElementById("room").value.trim();
+if(!name || !room){
+status("Naam aur Room ID bhariye!");
+return;
+}
+status("Room "+room+" select hua. Calling server connect karna baaki hai.");
+}
+function leaveRoom(){
+status("Aap room se bahar aa gaye.");
+}
+function status(message){
+document.getElementById("status").innerText=message;
+}
+</script>
+</body>
+</html>
